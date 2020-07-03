@@ -1,0 +1,38 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1">
+
+	<persistence-unit name="contatos">
+		<description>
+            Persistence unit for Hibernate User Guide
+        </description>
+
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		
+		<class>Av2.model.Contato</class>
+
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			
+			<!-- Endereço da aplicação localhost/test = nome do banco  -->
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1/db_av2" />
+			
+			<!-- Define user do banco -->
+			<property name="javax.persistence.jdbc.user" value="root" />
+			
+			<!-- Define a senha do banco (vazia por default) -->
+			<property name="javax.persistence.jdbc.password" value="" />
+			
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.show_sql" value="true" />
+			
+			<!-- Replica no banco de dados -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+		</properties>
+
+	</persistence-unit>
+
+</persistence>

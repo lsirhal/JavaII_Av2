@@ -1,0 +1,30 @@
+package controller;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import model.Contato;
+
+public class Cadastrar {
+	public static void main(String[] args) {
+		
+		Contato contato = new Contato();
+		contato.setNome("Karla Frota");
+		contato.setEmail("karla@frota.com.br");
+		contato.setEndereco("Rua X - Rio de Janeiro");
+		
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("tarefas");
+		EntityManager manager = factory.createEntityManager();
+		
+		manager.getTransaction().begin();
+		manager.persist(contato);
+		manager.getTransaction().commit();
+		
+		System.out.println("Contato cadastrado com sucesso!" + contato.getId());
+		
+		manager.close();
+		
+	}
+
+}

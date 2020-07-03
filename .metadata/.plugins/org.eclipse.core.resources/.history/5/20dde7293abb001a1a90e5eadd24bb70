@@ -1,0 +1,64 @@
+package view;
+
+import java.util.Scanner;
+
+import controller.Cadastrar;
+import model.Contato;
+
+public class main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("******Cadastro de Contatos******");
+		System.out.println("Seja bem vindo(a)!" + "\n");
+		
+	    System.out.println("1 - Cadastrar novo contato;");
+	    System.out.println("2 - Atualizar contato;");
+	    System.out.println("3 - Listar todos contatos;");
+	    System.out.println("4 - Buscar por ID;");
+	    System.out.println("5 - Excluir contato;");
+	    System.out.println("0 - Sair"  + "\n");
+		
+		System.out.print("Digite a opção desejada: ");
+		int op = sc.nextInt();
+		
+		sc.nextLine();
+		
+		while(op != 0) {
+			if(op == 1) {
+				System.out.print("---> Cadastrar novo contato: ");
+				
+				System.out.print("Nome do contato: ");
+				String nome = sc.nextLine();
+				//sc.nextLine();
+				
+				System.out.print("Email do contato: ");
+				String email = sc.nextLine();
+				
+				System.out.print("Endereço do contato: ");
+				String end = sc.nextLine();
+				
+				System.out.println("\n");
+				
+				//System.out.println("Nome: " + nome + "\n" + "Email: " + email + "\n" + "Endereço: " + end + "\n");
+				
+				Contato contato = new Contato();
+				contato.setNome(nome);
+				contato.setEmail(email);
+				contato.setEndereco(end);
+				
+				//Cadastrar.cadastrarContato(contato);
+				System.out.println("Contato " + nome + " cadastrado com sucesso!");
+				System.out.println("\n");
+			}
+			
+			System.out.print("Para sair digite 0 ou a opção desejada: ");
+			op = sc.nextInt();
+			sc.nextLine();
+		}
+		
+	}
+
+}

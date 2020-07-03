@@ -1,0 +1,36 @@
+package controller;
+
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+
+import model.Contato;
+
+public class BuscarRegistros {
+	
+	public static void main(String[] args) {
+		
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("contatos");
+		EntityManager manager = factory.createEntityManager();
+		
+		String sql = "FROM Contatos c";
+		//String sql = "select t from contatos as t where t.nome = :paramNome";
+		
+		Query query = manager.createQuery(sql);
+		
+		//query.setParameter("paramNome", "Karla Frota");
+			
+		List<Contato> Lista = query.getResultList();
+		
+		for (Contato c : Lista) {
+			System.out.println("ID: " + c.getId() + "\n");
+			System.out.println("Nome: " + c.getNome() + "\n");
+			System.out.println("Nome: " + c.getEmail() + "\n");
+		}
+		
+		manager.close();
+	}
+	
+}

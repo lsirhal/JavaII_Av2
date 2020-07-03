@@ -1,0 +1,22 @@
+package controller;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import model.Contato;
+
+public class Cadastrar {
+	public static void main(String[] args) {
+		
+		Contato contato = new Contato();
+		contato.setNome("Karla Frota");
+		contato.setEmail("karla@frota.com.br");
+		contato.setEndereco("Rua X - Rio de Janeiro");
+		
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("tarefas");
+		EntityManager manager = factory.createEntityManager();
+		
+	}
+
+}

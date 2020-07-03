@@ -1,0 +1,25 @@
+package controller;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import model.Contato;
+
+public class Deletar {
+
+	public static void main(String[] args) {
+		
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("tarefas");
+		EntityManager manager = factory.createEntityManager();
+		
+		Contato contato = manager.find(Contato.class, 2L);
+		
+		manager.getTransaction().begin();
+		manager.remove(contato);
+		manager.getTransaction().commit();
+		
+		System.out.println("Contato com o ID 1 excluída!");
+	}
+
+}
